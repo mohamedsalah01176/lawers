@@ -8,8 +8,7 @@ import Image from 'next/image';
 
 export default function Home() {
 
-  const baseUr=process.env.NEXT_PUBLIC_REST_BASE_URL
-
+  const baseUr='https://ymtaz.sa/api/client'
   const [data, setData] = useState<any>([]);
 
   function getdata(){
