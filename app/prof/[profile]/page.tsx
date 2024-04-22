@@ -10,12 +10,14 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 
 
 export default  function page({params}:any) {
+    const baseUr=process.env.NEXT_PUBLIC_REST_BASE_URL
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [dataDetails,setDataDetails]=useState<any>();
     const apiKey=process.env.NEXT_PUBLIC_REST_API_KEY
     const id=params.profile
     async function getdata(){
-        const response:any =  await axios.create({baseURL:"https://ymtaz.sa/api/client",headers:{Authorization:`Bearer ${apiKey}`}}).get(`/lawyer/${id}`)
+        const response:any =  await axios.create({baseURL:baseUr,headers:{Authorization:`Bearer ${apiKey}`}}).get(`/lawyer/${id}`)
         let dataaxios=await response.data;
         setDataDetails(dataaxios.data.lawyer);
       }

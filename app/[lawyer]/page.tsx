@@ -12,11 +12,12 @@ import { useEffect, useState } from 'react';
 export default  function Lawyer({params}:any) {
   const [dataDetails,setDataDetails]=useState<any>([]);
   const apiKey=process.env.NEXT_PUBLIC_REST_API_KEY
+  const baseUr=process.env.NEXT_PUBLIC_REST_BASE_URL
 
   const id=params.lawyer 
     
     async function getdata(id2:string){
-      const response:any = await axios.create({baseURL:"https://ymtaz.sa/api/client",headers:{Authorization:`Bearer ${apiKey}`}}).post(`/digital-guide/search?category_id=${id2}`,id2)
+      const response:any = await axios.create({baseURL:baseUr,headers:{Authorization:`Bearer ${apiKey}`}}).post(`/digital-guide/search?category_id=${id2}`,id2)
       let dataaxios= response.data;
       setDataDetails(dataaxios.data.lawyers);
     }

@@ -8,10 +8,12 @@ import Image from 'next/image';
 
 export default function Home() {
 
+  const baseUr=process.env.NEXT_PUBLIC_REST_BASE_URL
+
   const [data, setData] = useState<any>([]);
 
   function getdata(){
-    axios.get("https://ymtaz.sa/api/client/digital-guide/categories").then(res=>setData(res.data.data.categories))
+    axios.get(`${baseUr}/digital-guide/categories`).then(res=>setData(res.data.data.categories))
   }
   useEffect( () => {
     getdata()
