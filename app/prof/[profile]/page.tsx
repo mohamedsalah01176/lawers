@@ -58,7 +58,7 @@ export default  function page({params}:any) {
             </div>
             <div className='bg-white p-5 rounded-lg mb-2'>
                 <h1 className='text-2xl font-bold mb-5 mt-3'>تقييم العملاء:</h1>
-                <div className='flex justify-between '>
+                <div className='flex justify-between flex-col md:flex-row gap-4'>
                     <div className='text-center'>
                         <Rating name="read-only" value={5} readOnly className='text-3xl text-[#E2A03F]' />
                         <p className='text-[20px] text-[#A3A4A5]'>التقييم العام</p>
